@@ -169,14 +169,16 @@ export default class MultiSlider extends React.Component {
       nextState.pastOne = positionOne;
       nextState.positionOne = positionOne;
 
-      var positionTwo = valueToPosition(
-        nextProps.values[1],
-        this.optionsArray,
-        nextProps.sliderLength,
-      );
-      nextState.valueTwo = nextProps.values[1];
-      nextState.pastTwo = positionTwo;
-      nextState.positionTwo = positionTwo;
+      if (nextProps.values[1]) {
+        var positionTwo = valueToPosition(
+          nextProps.values[1],
+          this.optionsArray,
+          nextProps.sliderLength,
+        );
+        nextState.valueTwo = nextProps.values[1];
+        nextState.pastTwo = positionTwo;
+        nextState.positionTwo = positionTwo;
+      }
     }
 
     if (nextState != {}) {
